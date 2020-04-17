@@ -4,6 +4,11 @@ const sendExampleEmail = require('../mailers/example');
 const router = new KoaRouter();
 
 router.get('hello', '/', async (ctx) => {
+  // Use helper functions
+  ctx.helpers.hello.sayHey();
+  ctx.helpers.hello.sayHo();
+
+  // Render view
   await ctx.render('hello/index', {
     nameUrl: (name) => ctx.router.url('hello.name', name),
     notice: ctx.flashMessage.notice,
