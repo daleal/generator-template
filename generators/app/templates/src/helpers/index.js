@@ -10,8 +10,7 @@ fs
   .filter((file) => file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js')
   .forEach((file) => {
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    const helperModule = require(path.join(__dirname, file));
-    const { name, ...helperObject } = helperModule;
+    const { name, ...helperObject } = require(path.join(__dirname, file));
     helpers[name] = helperObject;
   });
 
